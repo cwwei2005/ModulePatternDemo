@@ -6,9 +6,6 @@ apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
-
-
-
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 28
@@ -33,17 +30,18 @@ kapt {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-//    implementation 'com.android.support:appcompat-v7:28.0.0'
-//    testImplementation 'junit:junit:4.12'
-//    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-//    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api rootProject.ext.dependencies["androidx-appcompat"]
+    api rootProject.ext.dependencies["kotlin"]
+    api rootProject.ext.dependencies["kotlin-anko"]
+    api rootProject.ext.dependencies["androidx-core"]
+    api rootProject.ext.dependencies["androidx-constraintlayout"]
+    testApi rootProject.ext.dependencies["junit"]
+    androidTestApi rootProject.ext.dependencies["androidx-test-runner"]
+    androidTestApi rootProject.ext.dependencies["androidx-test-espresso"]
 
     //第三方lib
-//    api rootProject.ext.dependencies["recyclerview"]
-    //ARouter
-    api "$arouter_group:arouter-api:$arouter_api_version"
-    kapt "$arouter_group:arouter-compiler:$arouter_compiler_version"
+    api rootProject.ext.dependencies["arouter-api"]
+    kapt rootProject.ext.dependencies["arouter-compiler"]  //只在module内使用，所以其它组件也需要添加这个依赖
+    api rootProject.ext.dependencies["recyclerview"]
 }

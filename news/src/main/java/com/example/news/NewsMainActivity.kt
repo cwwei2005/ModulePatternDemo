@@ -5,10 +5,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.alibaba.android.arouter.facade.annotation.Route
 
-//import com.github.mzule.activityrouter.annotation.Router
 
-//@Router("news")
-@Route(path = "/news/list")
+@Route(path = "/news/NewsMainActivity")
 class NewsMainActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

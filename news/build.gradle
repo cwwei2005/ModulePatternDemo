@@ -1,4 +1,3 @@
-//apply plugin: 'com.android.application'
 if (rootProject.ext.isAlone){
     apply plugin: 'com.android.application'
 } else{
@@ -10,15 +9,15 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion     rootProject.ext.android["compileSdkVersion"]
+    compileSdkVersion     28
     defaultConfig {
         if (rootProject.ext.isAlone){
             applicationId "com.example.news"
         }
-        minSdkVersion     rootProject.ext.android["minSdkVersion"]
-        targetSdkVersion  rootProject.ext.android["compileSdkVersion"]
-        versionCode       rootProject.ext.android["versionCode"]
-        versionName       rootProject.ext.android["versionName"]
+        minSdkVersion     19
+        targetSdkVersion  28
+        versionCode       1
+        versionName       "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -54,18 +53,7 @@ kapt {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation rootProject.ext.dependencies["androidx-appcompat"]//"androidx.appcompat:appcompat:1.0.0-beta01"
-    implementation rootProject.ext.dependencies["androidx-core"]//'androidx.core:core-ktx:1.1.0-alpha04'
-    implementation rootProject.ext.dependencies["androidx-constraintlayout"]//'androidx.constraintlayout:constraintlayout:1.1.3'
-    testImplementation rootProject.ext.dependencies["junit"]//'junit:junit:4.12'
-    androidTestImplementation rootProject.ext.dependencies["androidx-test-runner"]//'androidx.test:runner:1.1.0-alpha4'
-    androidTestImplementation rootProject.ext.dependencies["androidx-test-espresso"]//'androidx.test.espresso:espresso-core:3.1.0-alpha4'
-
-
-    //第三方lib
     implementation project(':common')
 
-    kapt "$arouter_group:arouter-compiler:$arouter_compiler_version"
+    kapt rootProject.ext.dependencies["arouter-compiler"]
 }
