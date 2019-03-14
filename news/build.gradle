@@ -55,5 +55,5 @@ kapt {
 dependencies {
     implementation project(':common')
 
-    kapt rootProject.ext.dependencies["arouter-compiler"]
+    kapt deps.arouter.compiler
 }

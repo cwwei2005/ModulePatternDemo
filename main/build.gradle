@@ -9,15 +9,15 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion     rootProject.ext.android["compileSdkVersion"]
+    compileSdkVersion 28
     defaultConfig {
         if (rootProject.ext.isAlone){
             applicationId "com.example.main"
         }
-        minSdkVersion     rootProject.ext.android["minSdkVersion"]
-        targetSdkVersion  rootProject.ext.android["compileSdkVersion"]
-        versionCode       rootProject.ext.android["versionCode"]
-        versionName       rootProject.ext.android["versionName"]
+        minSdkVersion     19
+        targetSdkVersion  28
+        versionCode       1
+        versionName       "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -55,5 +55,5 @@ kapt {
 dependencies {
     api project(':common')
 
-    kapt rootProject.ext.dependencies["arouter-compiler"]
+    kapt deps.arouter.compiler
 }

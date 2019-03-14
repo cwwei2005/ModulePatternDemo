@@ -35,6 +35,6 @@ dependencies {
         implementation project(':news')
     }
 
-    kapt rootProject.ext.dependencies["arouter-compiler"]
+    kapt deps.arouter.compiler
 
 }

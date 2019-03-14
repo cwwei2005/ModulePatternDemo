@@ -3,9 +3,7 @@ package com.example.modulepatterndemo;
 import android.util.Log;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.common.BaseApplication;
-//import com.github.mzule.activityrouter.annotation.Modules;
 
-//@Modules({"main", "news"})
 public class MyApplication extends BaseApplication {
 
     @Override
